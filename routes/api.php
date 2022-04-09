@@ -21,4 +21,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'zoom'], function() {
     Route::apiResource('meetings', \App\Http\Controllers\Api\Zoom\MeetingController::class);
 });
-
