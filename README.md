@@ -16,6 +16,8 @@ endpoints to manage meetings. See the documentation
 After these changes, you can now use the application. In the frontend, you may use [axios](https://github.com/axios/axios) to make the requests.
 You can also test the application using [Postman](https://postman.com).
 
+A demo of this app is available at [ZoomAPI](https://my-zoom-api.herokuapp.com).
+
 ## Usage
 
 This API has four endpoints:
