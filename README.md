@@ -6,15 +6,21 @@ endpoints to manage meetings. See the documentation
 
 ## Getting Started
 
-1. Create a developer account in Zoom
-2. Create a JWT app
-3. Copy the value for `client key` and `client secret` and update the values in .env file
+1. Create a developer account in [Zoom](https://developers.zoom.us/)
+2. Sign in if sign up did not sign you in
+3. Click on `Build App`
+4. Choose `JWT` in choose your app type
+5. Fill in required information
+6. Copy the value for `API Key` and paste to `ZOOM_CLIENT_KEY` in `.env` and `API Secret` to `ZOOM_CLIENT_SECRET`
+
+After these changes, you can now use the application. In the frontend, you may use [axios](https://github.com/axios/axios) to make the requests.
+You can also test the application using [Postman](https://postman.com).
 
 ## Usage
 
 This API has four endpoints:
 
-GET `/api/meetings`     returns a paginated list of meetings
+GET `/api/zoom/meetings`     returns a paginated list of meetings
 [documentation](https://marketplace.zoom.us/docs/api-reference/zoom-api/methods#operation/meetings)
 
 Arguments:
@@ -28,7 +34,7 @@ Arguments:
 
 Returns: https://marketplace.zoom.us/docs/api-reference/zoom-api/methods#operation/meetings
 
-POST `/api/meetings`    creates a new meeting
+POST `/api/zoom/meetings`    creates a new meeting
 [documentation](https://marketplace.zoom.us/docs/api-reference/zoom-api/methods#operation/meetings)
 
 Arguments:
@@ -45,7 +51,7 @@ Arguments:
 
 Returns: https://marketplace.zoom.us/docs/api-reference/zoom-api/methods#operation/meetingCreate
 
-GET `/api/meetings/{meetingId}` shows meeting information
+GET `/api/zoom/meetings/{meetingId}` shows meeting information
 [documentation](https://marketplace.zoom.us/docs/api-reference/zoom-api/methods#operation/meeting)
 
 Arguments:
@@ -56,7 +62,7 @@ Arguments:
 
 Response: [Meeting object](https://marketplace.zoom.us/docs/api-reference/zoom-api/methods#operation/meeting)
 
-PUT `/api/meetings/{meetingId}` updates meeting information
+PUT `/api/zoom/meetings/{meetingId}` updates meeting information
 [documentation](https://marketplace.zoom.us/docs/api-reference/zoom-api/methods#operation/meetingUpdate)
 
 Arguments:
@@ -72,7 +78,7 @@ Arguments:
 |meeting_invitees| null | yes | Email of invitees. Must follow format: [{email:"email@example.com"}]
 |type | 2       | yes       | Type of meeting to create: 1 - instant, 2 - scheduled, 3 - recurring with no fixed time, 8 - recurring with fixed time
 
-DELETE `/api/meetings/{meetingId}`  deletes meeting
+DELETE `/api/zoom/meetings/{meetingId}`  deletes meeting
 [documentation](https://marketplace.zoom.us/docs/api-reference/zoom-api/methods#operation/meetingDelete)
 
 Arguments:
