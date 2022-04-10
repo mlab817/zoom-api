@@ -27,10 +27,18 @@ class MeetingController extends Controller
     {
         $path = '/users/me/meetings';
 
-        $response = $this->zoomGet(self::PATH);
+        $query = [
+            'type'              => $request->type ?? 'scheduled',
+            'page_size'         => $request->page_size ?? 10,
+            'next_page_token'   => $request->next_page_token ?? null,
+            'page_number'       => $request->page_number ?? 1
+        ];
+
+        $response = $this->zoomGet(self::PATH, $query);
 
         $data = json_decode($response->body(), true);
 
+        // format the start at information of the meetings
         $data['meetings'] = array_map(function ($m) {
             $m['start_at'] = $this->toUnixTimeStamp($m['start_time'], $m['timezone']);
             return $m;
